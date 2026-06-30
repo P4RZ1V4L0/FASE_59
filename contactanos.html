@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contáctanos — FASE 59</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="contactanos.css">
+  <script src="tabla.js" defer></script>
+  <link rel="stylesheet" href="chat.css">
+  <script src="chat copy.js" defer></script>
+</head>
+<body>
+<div id="intro-overlay">
+  <div class="intro-text">contacto</div>
+  <div class="destello"></div>
+</div>
+
+<script>
+  // Control del tiempo de la introducción y el destello
+  document.addEventListener('DOMContentLoaded', () => {
+    const intro = document.getElementById('intro-overlay');
+    
+    // Transcurridos 3.6 segundos (justo en el clímax del destello), desvanecemos el fondo negro
+    setTimeout(() => {
+      intro.classList.add('intro-hidden');
+      
+      // Eliminamos el contenedor del código después de 1 segundo de transición para liberar memoria
+      setTimeout(() => {
+        intro.remove();
+      }, 1000);
+    }, 3600);
+  });
+</script>
+<header>
+  <div class="titulo">
+    <h1>FASE 59</h1>
+  </div>
+  <div class="nav">
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contactanos.html">Contáctanos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="section-label" style="margin-top:3rem;">Información de contacto</p>
+    <h2>Estamos <em>aquí para ti</em></h2>
+  </div>
+
+  <div style="max-width:560px;margin:0 auto 2rem;padding:0 1rem;display:grid;gap:0.75rem;">
+    <div class="card" style="margin:0;padding:1.25rem 1.75rem;">
+      <h3 style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;">WhatsApp</h3>
+      <p style="font-size:1rem;color:var(--ink);">044 551 176 5154</p>
+    </div>
+    <div class="card" style="margin:0;padding:1.25rem 1.75rem;">
+  <h3 style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;">Dirección</h3>
+  <p style="font-size:0.9rem;color:var(--ink);">
+    <a href="https://maps.google.com/?q=Privada+Bernamirans+7,+Fraccionamiento+Rancho+de+la+Luz,+Tecámac,+Edo.+Méx." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       style="color: var(--ink); text-decoration: none; border-bottom: 1px dashed var(--ink-muted); transition: all 0.2s;">
+       Privada Bernamirans 7, Fraccionamiento Rancho de la Luz, Tecámac, Edo. Méx.
+    </a>
+  </p>
+</div>
+    <div class="card" style="margin:0;padding:1.25rem 1.75rem;">
+      <h3 style="font-size:0.7rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.4rem;">Correo</h3>
+      <p style="font-size:0.95rem;color:var(--ink);">sergioeufracio@fase59.com</p>
+    </div>
+  </div>
+
+  <section class="contacto-seccion">
+    <h2>¿Cómo fue tu experiencia?</h2>
+    <form id="formulario-contacto">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos tu experiencia…" required></textarea>
+      </div>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <section id="mensajes-recibidos">
+    <h2>Comentarios</h2>
+    <table id="tabla-mensajes">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Mensaje</th>
+        </tr>
+      </thead>
+      <tbody id="cuerpo-tabla-mensajes"></tbody>
+    </table>
+  </section>
+</main>
+
+<div class="footer">
+  <footer>
+    <div>© 2025 FASE 59 — Todos los derechos reservados</div>
+  </footer>
+</div>
+
+</body>
+</html>

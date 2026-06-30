@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios — FASE 59</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="img.css">
+  <link rel="stylesheet" href="chat.css">
+  <script src="chat copy.js" defer></script>
+</head>
+<body>
+<div id="intro-overlay">
+  <div class="intro-text">servicios</div>
+  <div class="destello"></div>
+</div>
+
+<script>
+  // Control del tiempo de la introducción y el destello
+  document.addEventListener('DOMContentLoaded', () => {
+    const intro = document.getElementById('intro-overlay');
+    
+    // Transcurridos 3.6 segundos (justo en el clímax del destello), desvanecemos el fondo negro
+    setTimeout(() => {
+      intro.classList.add('intro-hidden');
+      
+      // Eliminamos el contenedor del código después de 1 segundo de transición para liberar memoria
+      setTimeout(() => {
+        intro.remove();
+      }, 1000);
+    }, 3600);
+  });
+</script>
+<header>
+  <div class="titulo">
+    <h1>FASE 59</h1>
+  </div>
+  <div class="nav">
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contactanos.html">Contáctanos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="section-label" style="margin-top:3rem;">Lo que ofrecemos</p>
+    <h2>Nuestros <em>servicios</em></h2>
+    <p>Soluciones integrales de diseño y tecnología para impulsar tu negocio.</p>
+  </div>
+
+  <div class="image-hover-container">
+    <img src="img/360.jpeg" width="720" height="360" class="image-hover" alt="Servicios FASE 59">
+  </div>
+
+  <div class="card">
+    <h3>Diseño Gráfico</h3>
+    <p>Disciplina profesional centrada en la comunicación visual mediante tipografía, imágenes, color y composición. Transmitimos tu mensaje de manera efectiva, persuasiva y estética, con un enfoque estratégico para resolver problemas de comunicación.</p>
+  </div>
+
+  <div class="card">
+    <h3>Diseño Web</h3>
+    <p>Planificación, diseño, desarrollo y mantenimiento de sitios web funcionales, accesibles y visualmente atractivos. Priorizamos la experiencia del usuario (UX), el diseño responsivo, la accesibilidad web y la optimización para motores de búsqueda (SEO).</p>
+  </div>
+
+  <div class="card">
+    <h3>Reparación de Equipos Computacionales</h3>
+    <p>Soluciones integrales para hardware y software. Diagnosticamos y reparamos una amplia gama de problemas para que tu equipo vuelva a funcionar de manera óptima, con rapidez y confiabilidad.</p>
+  </div>
+
+  <div class="image-hover-container">
+    <img src="img/333.jpeg" width="720" height="360" class="image-hover" alt="Equipos">
+  </div>
+</main>
+
+<div class="footer">
+  <footer>
+    <div>© 2025 FASE 59 — Todos los derechos reservados</div>
+  </footer>
+</div>
+
+</body>
+</html>

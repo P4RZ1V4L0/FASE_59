@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FASE 59</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="img.css">
+  <link rel="stylesheet" href="chat.css">
+  <script src="chat copy.js" defer></script>
+</head>
+<body>
+<div id="intro-overlay">
+  <div class="intro-text">FASE 59</div>
+  <div class="destello"></div>
+</div>
+
+<script>
+  // Control del tiempo de la introducción y el destello
+  document.addEventListener('DOMContentLoaded', () => {
+    const intro = document.getElementById('intro-overlay');
+    
+    // Transcurridos 3.6 segundos (justo en el clímax del destello), desvanecemos el fondo negro
+    setTimeout(() => {
+      intro.classList.add('intro-hidden');
+      
+      // Eliminamos el contenedor del código después de 1 segundo de transición para liberar memoria
+      setTimeout(() => {
+        intro.remove();
+      }, 1000);
+    }, 3600);
+  });
+</script>
+<header>
+  <div class="titulo">
+    <h1>FASE 59</h1>
+  </div>
+  <div class="nav">
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="contactanos.html">Contáctanos</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="section-label" style="margin-top:3rem;">Quiénes somos</p>
+    <h2>Tecnología e innovación<br><em>a tu medida</em></h2>
+    <p>Organización especializada en Tecnologías de Información y Comunicación, en constante evolución para adaptarse a los cambios del mercado.</p>
+  </div>
+
+  <div class="card">
+    <h3>Nuestra misión</h3>
+    <p>Somos una organización con vocación de prestar servicios integrales al cliente dentro de las TIC. Incorporamos siempre tecnología de última generación aplicada a los sistemas web y de diseño gráfico.</p>
+  </div>
+
+  <div class="image-hover-container">
+    <img src="img/code.jpeg" width="720" height="380" class="image-hover" alt="Código">
+  </div>
+
+  <div class="card" id="prete">
+    <h3>Nuestra visión</h3>
+    <p>Ser un estudio de Diseño Gráfico y Programación Web que brinde las mejores soluciones en comunicación gráfica y sistematizada, de manera eficiente, profesional y creativa, para contribuir al crecimiento de empresas y marcas en el mercado local, nacional e internacional.</p>
+  </div>
+
+  <div class="image-hover-container">
+    <img src="img/cede.jpg" width="720" height="380" class="image-hover" alt="Sede">
+  </div>
+</main>
+
+<div class="footer">
+  <footer>
+    <div>© 2025 FASE 59 — Todos los derechos reservados</div>
+  </footer>
+</div>
+
+</body>
+</html>

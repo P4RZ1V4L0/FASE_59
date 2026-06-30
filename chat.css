@@ -1,0 +1,235 @@
+/* ── CONTENEDOR PRINCIPAL DEL CHAT ── */
+.chat-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── BOTÓN FLOTANTE (BURBUJA) ── */
+.chat-toggle-btn {
+  width: 64px;
+  height: 64px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.chat-toggle-btn:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 12px 28px rgba(45, 90, 61, 0.25);
+}
+
+.chat-toggle-btn svg {
+  width: 32px;
+  height: 32px;
+  fill: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+/* Animación sutil al ícono cuando pasas el cursor */
+.chat-toggle-btn:hover svg {
+  transform: scale(1.1);
+}
+
+/* ── PANEL DE CHAT (LA VENTANA) ── */
+.chat-window {
+  position: absolute;
+  bottom: 85px; /* Aparece justo arriba de la burbuja */
+  right: 0;
+  width: 360px;
+  height: 520px;
+  max-height: 75vh;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(26, 26, 24, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+  /* Estado oculto por defecto con animación */
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  pointer-events: none;
+  transform-origin: bottom right;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Esta clase es la que tu JS añade para mostrar el chat */
+.chat-window.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ── CABECERA DEL CHAT ── */
+.chat-header {
+  background-color: var(--accent);
+  color: #ffffff;
+  padding: 1.1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+}
+
+.chat-header h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.close-chat {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.close-chat:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* ── ÁREA DE MENSAJES ── */
+.chat-messages {
+  flex: 1;
+  padding: 1.25rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--bg);
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizado y sutil */
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #d1cdb9;
+  border-radius: 10px;
+}
+
+/* ── GLOBOS DE TEXTO ── */
+.mensaje {
+  max-width: 85%;
+  padding: 0.8rem 1.1rem;
+  border-radius: 14px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  animation: messagePop 0.3s ease forwards;
+}
+
+/* Animación para cuando aparece un mensaje nuevo */
+@keyframes messagePop {
+  0% { opacity: 0; transform: translateY(10px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.mensaje-bot {
+  align-self: flex-start;
+  background-color: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 2px; /* Efecto de cola de globo */
+  box-shadow: var(--shadow-sm);
+}
+
+.mensaje-usuario {
+  align-self: flex-end;
+  background-color: var(--accent);
+  color: #ffffff;
+  border-bottom-right-radius: 2px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── ZONA DE ESCRITURA Y ENVÍO ── */
+.chat-input-area {
+  padding: 1rem 1.25rem;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 0.6rem;
+  z-index: 2;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background-color: var(--bg);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.chat-input-area input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(45,90,61,0.1);
+  background-color: var(--surface);
+}
+
+.chat-input-area input::placeholder {
+  color: var(--ink-muted);
+}
+
+.chat-input-area button {
+  background-color: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  padding: 0 1.25rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.chat-input-area button:hover:not(:disabled) {
+  background-color: #224830;
+  transform: translateY(-1px);
+}
+
+.chat-input-area button:disabled {
+  background-color: #a8bba0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── RESPONSIVE DESIGN (Para móviles) ── */
+@media (max-width: 480px) {
+  .chat-widget {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .chat-window {
+    width: calc(100vw - 2rem);
+    right: 0;
+    height: 65vh;
+  }
+}
