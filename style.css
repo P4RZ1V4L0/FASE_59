@@ -27,7 +27,7 @@ body {
   
   /* ── IMAGEN DE FONDO ── */
   /* Reemplaza 'tu-imagen.jpg' con la ruta real de tu imagen (ej. img/fondo.jpg) */
- background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('img/comp-of.jpeg');
+ background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('comp-of.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* El fondo se queda fijo mientras scrolleas */
